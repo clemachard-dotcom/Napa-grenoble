@@ -855,7 +855,7 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
         <div class="done" id="done" hidden>
           <h3 id="done-title" tabindex="-1">Merci&nbsp;!</h3>
           <p>Votre avis nous aide à construire NAPA. <span id="done-next">Nous vous préviendrons au lancement de l'appli.</span></p>
-          <p class="demo" id="demo-note" hidden>Mode démo&nbsp;: ce formulaire n'est pas encore relié à Brevo, rien n'a été enregistré.</p>
+          <p class="demo" id="demo-note" hidden>Mode démo&nbsp;: ce formulaire n'est pas encore relié au Google Sheet, rien n'a été enregistré.</p>
           <p>Vous connaissez quelqu'un que ça aiderait&nbsp;?</p>
           <div class="done-actions">
             <button class="btn btn-ghost" type="button" id="share">Partager NAPA</button>
@@ -911,7 +911,7 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
         </details>
         <details>
           <summary>Que faites-vous de mon e-mail&nbsp;?</summary>
-          <p>Si vous ne cochez pas la case « tenu·e au courant », il sert uniquement à vous annoncer le lancement de l'appli. Si vous la cochez, vous recevez aussi des nouvelles du projet, avec un lien de désinscription dans chaque envoi. Vous pouvez demander la suppression de vos données à tout moment.</p>
+          <p>Si vous ne cochez pas la case « tenu·e au courant », il sert uniquement à vous annoncer le lancement de l'appli. Si vous la cochez, vous recevez aussi des nouvelles du projet, et vous pouvez les arrêter à tout moment. Vous pouvez demander la suppression de vos données à tout moment.</p>
         </details>
       </div>
     </div>
@@ -941,9 +941,9 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
 
 <script>
 (() => {
-  // Adresse d'envoi du formulaire Brevo (voir MISE-EN-LIGNE.md), par exemple
-  // "https://xxxxxxxx.sibforms.com/serve/MUIFA...". Laissée vide, la page tourne en mode démo : rien n'est envoyé.
-  const BREVO_FORM_URL = "";
+  // Adresse de l'application web Google Apps Script qui remplit le Google Sheet (voir MISE-EN-LIGNE.md), par exemple
+  // "https://script.google.com/macros/s/AKfy.../exec". Laissée vide, la page tourne en mode démo : rien n'est envoyé.
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbzwzwKX8VFniEufx87isywJ1914nVW8dv8_Lvn4UqN1hVymqIgkb28w5JkRiAB6qs8T/exec";
 
   const $ = (id) => document.getElementById(id);
 
@@ -996,7 +996,7 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
     }
 
     const niveaux = [...document.querySelectorAll('input[name="niveau"]:checked')].map((b) => b.value);
-    const data = new FormData();
+    const data = new URLSearchParams();
     data.append("EMAIL", email.value);
     data.append("PRENOM", $("f-prenom").value.trim());
     data.append("QUARTIER", $("f-quartier").value.trim());
@@ -1008,27 +1008,23 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
     data.append("PROFIL", "particulier");
     data.append("SOURCE", source);
     data.append("email_address_check", $("f-site").value);
-    data.append("locale", "fr");
 
     submit.disabled = true;
     submit.textContent = "Envoi en cours…";
     try {
-      if (!BREVO_FORM_URL) {
+      if (!SHEET_URL) {
         console.info("[NAPA] Mode démo, données non envoyées :", Object.fromEntries(data));
         await new Promise((r) => setTimeout(r, 400));
         showDone(true);
         return;
       }
-      const res = await fetch(BREVO_FORM_URL + "?isAjax=1", { method: "POST", body: data });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.success === false) {
-        const detail = json.errors ? Object.values(json.errors)[0] : json.message;
-        throw new Error(detail || "Réponse inattendue du serveur.");
-      }
+      // Google renvoie sa réponse depuis un autre domaine : en mode "no-cors" la page ne peut pas la lire,
+      // mais la ligne est bien ajoutée. Seule une coupure réseau fait échouer l'appel.
+      await fetch(SHEET_URL, { method: "POST", mode: "no-cors", body: data });
       showDone(false);
     } catch (err) {
       const msg = $("err-submit");
-      msg.textContent = "L'envoi n'a pas abouti (" + err.message + "). Vérifiez votre connexion puis réessayez.";
+      msg.textContent = "L'envoi n'a pas abouti. Vérifiez votre connexion puis réessayez.";
       msg.hidden = false;
       submit.disabled = false;
       submit.textContent = "Envoyer mon avis";
