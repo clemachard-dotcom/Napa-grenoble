@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NAPA Grenoble</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Un étudiant pour chaque coup de main, à Grenoble : garde d'enfants, cours particuliers, aide aux courses. Étudiants certifiés, emploi déclaré via le CESU. Donnez votre avis en 1 minute.">
+<meta property="og:title" content="NAPA, un étudiant pour chaque coup de main">
+<meta property="og:description" content="Garde d'enfants, cours particuliers, aide aux courses à Grenoble. Étudiants certifiés, 50 % du coût déduit avec le CESU.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..900&family=Arimo:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Mise en page : reprend l'affiche NAPA (bleu, titres Arial Bold, étiquettes de missions en capitales larges, photo dans un cercle bleu).
+   Une colonne pensée pour le téléphone (on arrive par le QR code de l'affiche), deux colonnes sur grand écran. */
+:root {
+  --paper: #FFFFFF;
+  --tint: #EEF3FC;
+  --surface: #FFFFFF;
+  --ink: #05070D;
+  --text: #17213B;
+  --muted: #4F5A76;
+  --line: #D3DDF1;
+  --blue: #4B7AE1;
+  --action: #3F6FDA;
+  --on-blue: #FFFFFF;
+  --on-blue-muted: #E4ECFD;
+  --navy: #1E348A;
+  --blue-soft: #DFE8FB;
+  --hl-fg: #1E348A;
+  --hl-band: #4B7AE1;
+  --ridge-far: #E2EAFA;
+  --ridge-mid: #CCDAF6;
+  --ridge-near: #B3C8F2;
+  --err: #C0262D;
+  --focus: #1E348A;
+  --shadow: 0 1px 2px rgb(30 52 138 / .08), 0 14px 34px -14px rgb(30 52 138 / .35);
+
+  --f-head: Arial, "Helvetica Neue", Helvetica, "Arimo", sans-serif;
+  --f-wide: "Archivo", "Arial Black", Arial, sans-serif;
+  --f-body: "Work Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --t-hero: clamp(2.6rem, 1.5rem + 5vw, 4.8rem);
+  --t-h2: clamp(1.75rem, 1.3rem + 2vw, 2.6rem);
+  --t-h3: clamp(1.2rem, 1.05rem + .6vw, 1.45rem);
+  --t-lead: 1.15rem;
+  --t-body: 1.0625rem;
+  --t-small: .92rem;
+  --t-label: .78rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0A1020; --tint: #0F182D; --surface: #131D35; --ink: #F3F6FC; --text: #DCE3F2; --muted: #9DA9C4; --line: #26345A;
+    --blue: #4B7AE1; --action: #3F6FDA; --on-blue: #FFFFFF; --on-blue-muted: #E4ECFD; --navy: #A9C1F7; --blue-soft: #1B2A4F;
+    --hl-fg: #E4ECFD; --hl-band: #2C4FA6; --ridge-far: #121D36; --ridge-mid: #17253F; --ridge-near: #1E2F52;
+    --err: #FF8F8F; --focus: #A9C1F7;
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 14px 34px -14px rgb(0 0 0 / .7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0A1020; --tint: #0F182D; --surface: #131D35; --ink: #F3F6FC; --text: #DCE3F2; --muted: #9DA9C4; --line: #26345A;
+  --blue: #4B7AE1; --action: #3F6FDA; --on-blue: #FFFFFF; --on-blue-muted: #E4ECFD; --navy: #A9C1F7; --blue-soft: #1B2A4F;
+  --hl-fg: #E4ECFD; --hl-band: #2C4FA6; --ridge-far: #121D36; --ridge-mid: #17253F; --ridge-near: #1E2F52;
+  --err: #FF8F8F; --focus: #A9C1F7;
+  --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 14px 34px -14px rgb(0 0 0 / .7);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font: 400 var(--t-body)/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+img, svg { max-width: 100%; }
+a { color: inherit; text-underline-offset: .18em; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--f-head); font-weight: 700; color: var(--ink); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.wrap {
+  max-width: 70rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .wrap {
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+  }
+}
+
+.eyebrow {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55em;
+  min-height: 56px;
+  padding: 0 1.5em;
+  border: 0;
+  border-radius: 999px;
+  background: var(--action);
+  color: var(--on-blue);
+  font: 700 1.15rem/1.1 var(--f-head);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn[disabled] { opacity: .7; cursor: progress; transform: none; }
+.btn svg { flex: none; }
+.btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
+
+/* ---------- Logo et Instagram, comme sur l'affiche ---------- */
+.logo {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--on-blue);
+  font: 700 1.3rem/1 var(--f-head);
+  letter-spacing: .16em;
+  padding: .5em .9em .5em 1.06em;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.insta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font: 700 1.02rem/1 var(--f-head);
+  text-decoration: none;
+}
+.insta svg { flex: none; }
+.insta:hover span { text-decoration: underline; }
+
+.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 16px;
+}
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; }
+.hero-grid {
+  display: grid;
+  gap: 28px;
+  padding-block: 12px 0;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: center; padding-block: 36px 0; }
+}
+.hero-text { min-width: 0; display: grid; gap: 22px; justify-items: start; }
+h1 {
+  font-size: var(--t-hero);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+}
+.hl {
+  color: var(--hl-fg);
+  background: linear-gradient(transparent 42%, var(--hl-band) 42%, var(--hl-band) 88%, transparent 88%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-inline: .03em .08em;
+}
+.mission { font-size: var(--t-lead); max-width: 30em; }
+.mission strong { color: var(--ink); }
+
+/* Étiquettes de missions façon coup de pinceau */
+.pills { display: grid; gap: 12px; justify-items: start; }
+.pill {
+  display: inline-grid;
+  gap: 2px;
+  background: var(--blue);
+  color: var(--on-blue);
+  font-family: var(--f-wide);
+  font-weight: 850;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  font-size: clamp(1.02rem, .8rem + 1.1vw, 1.4rem);
+  line-height: 1.05;
+  letter-spacing: .005em;
+  padding: .62em 1.25em .58em 1.05em;
+  border-radius: 30px 48px 40px 22px / 26px 32px 38px 30px;
+  text-decoration: none;
+  transform: rotate(-1.4deg);
+  transition: transform .15s ease, filter .15s ease;
+}
+.pill:nth-child(2) { transform: rotate(.9deg); border-radius: 22px 44px 30px 46px / 30px 26px 40px 30px; }
+.pill:nth-child(3) { transform: rotate(-.5deg); border-radius: 40px 26px 44px 28px / 32px 40px 26px 34px; }
+.pill small { font-size: .62em; font-weight: 800; letter-spacing: .02em; }
+.pill:hover { filter: brightness(1.07); transform: rotate(0) translateY(-1px); }
+
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 4px; }
+.cta-note { font-size: var(--t-small); color: var(--muted); font-weight: 500; }
+
+/* Photo dans le cercle bleu */
+.duo {
+  position: relative;
+  margin: 8px auto 0;
+  width: min(72%, 330px);
+  aspect-ratio: 379 / 425;
+}
+.duo::before {
+  content: "";
+  position: absolute;
+  left: -5%;
+  top: -3%;
+  width: 110%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.duo img { position: relative; display: block; width: 100%; height: auto; }
+@media (min-width: 900px) { .duo { width: min(100%, 360px); margin: 0 0 0 auto; } }
+
+/* Montagnes et téléphérique de la Bastille */
+.alps { display: block; width: 100%; height: clamp(100px, 15vw, 200px); margin-top: -18px; }
+.alps .far { fill: var(--ridge-far); }
+.alps .mid { fill: var(--ridge-mid); }
+.alps .near { fill: var(--ridge-near); }
+.alps .cable { stroke: var(--navy); stroke-width: 1.4; opacity: .6; fill: none; }
+.alps .station { fill: var(--navy); }
+.alps .bulle circle { fill: var(--surface); stroke: var(--navy); stroke-width: 1.6; }
+.alps .bulle line { stroke: var(--navy); stroke-width: 1.4; }
+@media (prefers-reduced-motion: no-preference) {
+  .alps .cabins { animation: ride 18s ease-in-out infinite alternate; }
+}
+@keyframes ride {
+  0%, 10% { transform: translate(0, 0); }
+  90%, 100% { transform: translate(-273px, -46px); }
+}
+
+/* ---------- Sections ---------- */
+.sec { padding-block: 64px; scroll-margin-top: 12px; }
+@media (min-width: 900px) { .sec { padding-block: 92px; } }
+.sec-head { display: grid; gap: 12px; max-width: 42rem; margin-bottom: 36px; }
+.sec-head h2, .about h2 {
+  font-size: var(--t-h2);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+}
+.sec-head p { color: var(--muted); font-size: var(--t-lead); }
+
+/* Qui sommes-nous */
+.about { background: var(--tint); }
+.about .wrap { display: grid; gap: 16px; padding-block: 48px; }
+@media (min-width: 900px) { .about .wrap { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 48px; align-items: baseline; padding-block: 64px; } }
+.about-text { display: grid; gap: 14px; min-width: 0; font-size: var(--t-lead); max-width: 40rem; }
+.about-text strong { color: var(--ink); }
+
+/* Vos avantages */
+.benefit { display: grid; gap: 28px; }
+.benefit + .benefit { margin-top: 64px; }
+.benefit-title {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 14px;
+  align-items: start;
+  font-size: var(--t-h3);
+  line-height: 1.25;
+  max-width: 40rem;
+}
+.benefit-title::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  margin-top: .1em;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.benefit-title strong { color: var(--blue); }
+
+.price { display: grid; gap: 28px; }
+@media (min-width: 900px) { .price { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 56px; align-items: center; } }
+.price-text { display: grid; gap: 16px; min-width: 0; max-width: 34rem; }
+.price-text .muted { color: var(--muted); }
+
+.ticket {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px 22px 20px;
+  box-shadow: var(--shadow);
+  font-variant-numeric: tabular-nums;
+  max-width: 26rem;
+  width: 100%;
+  justify-self: center;
+}
+.ticket-head { font-size: var(--t-small); font-weight: 600; color: var(--muted); }
+.ticket dl { margin: 14px 0 0; display: grid; gap: 10px; }
+.ticket .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.ticket dt { color: var(--muted); }
+.ticket dd { margin: 0; font-weight: 700; white-space: nowrap; }
+.ticket .credit dd { color: var(--blue); }
+.ticket .student { margin-top: -4px; padding-left: 14px; border-left: 3px solid var(--blue-soft); font-size: var(--t-small); }
+.ticket .student dd { font-weight: 600; color: var(--text); }
+.ticket-foot { margin-top: 14px; font-size: var(--t-small); color: var(--muted); }
+.tear { position: relative; border-top: 2px dashed var(--line); margin: 6px -22px; }
+.tear::before, .tear::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.tear::before { left: -12px; clip-path: inset(0 0 0 50%); }
+.tear::after { right: -12px; clip-path: inset(0 50% 0 0); }
+.ticket .total dt { color: var(--ink); font-weight: 700; font-size: 1.05rem; }
+.ticket .total dd { font-family: var(--f-head); font-size: 2.5rem; line-height: 1; color: var(--ink); }
+
+.trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.trust li {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+@media (min-width: 700px) {
+  .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .trust li { padding: 18px; border: 1px solid var(--line); border-radius: 14px; }
+}
+.trust svg { color: var(--blue); margin-top: 1px; }
+.trust strong { color: var(--ink); }
+.trust-note { color: var(--muted); max-width: 40rem; }
+
+/* Étapes */
+.how { background: var(--tint); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: step; }
+@media (min-width: 640px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.steps li {
+  counter-increment: step;
+  min-width: 0;
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 22px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--on-blue);
+  font: 700 1.2rem/1 var(--f-head);
+}
+.steps h3 { font-size: 1.15rem; }
+.steps p { color: var(--muted); }
+
+/* ---------- Et l'objectif, c'est quoi ? ---------- */
+.join { background: var(--action); color: var(--on-blue); }
+.join .sec-head h2 { color: var(--on-blue); }
+.join .eyebrow { color: var(--on-blue-muted); }
+.goals { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 14px 40px; }
+@media (min-width: 720px) { .goals { grid-template-columns: repeat(2, minmax(0, auto)); justify-content: start; } }
+.goals li { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: baseline; font: 700 1.2rem/1.3 var(--f-head); }
+.goals b { font-size: 1.6rem; }
+
+.card {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+@media (min-width: 720px) { .card { padding: 36px; } }
+form { display: grid; gap: 30px; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend { padding: 0; font: 700 1.15rem/1.3 var(--f-head); color: var(--ink); margin-bottom: 14px; }
+legend small, .opt { font: 500 var(--t-small)/1.3 var(--f-body); color: var(--muted); }
+
+.mgrid { display: grid; gap: 10px; }
+@media (min-width: 600px) { .mgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mcard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 14px;
+  align-items: start;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  cursor: pointer;
+  min-width: 0;
+  transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+.mcard:hover { border-color: var(--blue); }
+.mcard input { grid-row: 1 / span 2; margin-top: 1px; }
+.mtitle { font-weight: 700; color: var(--ink); }
+.mdesc { color: var(--muted); font-size: var(--t-small); grid-column: 2; }
+.mcard.poster .mtitle {
+  font-family: var(--f-wide);
+  font-weight: 850;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  font-size: .95rem;
+  letter-spacing: .01em;
+}
+.mcard:has(input:checked) { background: var(--blue); border-color: var(--blue); }
+.mcard:has(input:checked) .mtitle { color: var(--on-blue); }
+.mcard:has(input:checked) .mdesc { color: var(--on-blue-muted); }
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 2px solid var(--muted);
+  border-radius: 7px;
+  background: var(--surface);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: var(--on-blue);
+  clip-path: polygon(14% 52%, 0 66%, 38% 100%, 100% 22%, 86% 8%, 37% 70%);
+  transform: scale(0);
+  transition: transform .12s ease;
+}
+input[type="checkbox"]:checked { background: var(--action); border-color: var(--action); }
+.mcard input[type="checkbox"]:checked { background: var(--navy); border-color: var(--on-blue); }
+input[type="checkbox"]:checked::before { transform: scale(1); }
+
+.sub { margin-top: 16px; display: grid; gap: 10px; }
+.sub-label { font-weight: 600; font-size: var(--t-small); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span {
+  display: inline-block;
+  padding: .5em 1em;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  font-weight: 600;
+  font-size: var(--t-small);
+  cursor: pointer;
+}
+.chip input:checked + span { background: var(--blue); border-color: var(--blue); color: var(--on-blue); }
+.chip input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.note { font-size: var(--t-small); color: var(--muted); margin-top: 14px; }
+
+.fields { display: grid; gap: 16px; }
+@media (min-width: 760px) { .fields { grid-template-columns: 1.3fr 1fr 1.2fr; } }
+.field { display: grid; gap: 6px; min-width: 0; align-content: start; }
+.field label { font-weight: 700; color: var(--ink); }
+.field input[type="text"], .field input[type="email"], .field textarea {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 1.05rem/1.3 var(--f-body);
+}
+.field textarea { padding: 12px 14px; min-height: 96px; resize: vertical; }
+.field input:focus, .field textarea:focus { border-color: var(--action); outline: none; box-shadow: 0 0 0 3px var(--blue-soft); }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: .75; }
+
+.consents { display: grid; gap: 12px; }
+.consent { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; cursor: pointer; }
+.consent span { padding-top: 1px; }
+
+.submit-row { display: grid; gap: 14px; justify-items: start; }
+.legal { font-size: var(--t-small); color: var(--muted); max-width: 46rem; }
+.error { color: var(--err); font-weight: 600; font-size: var(--t-small); margin-top: 10px; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.done { display: grid; gap: 14px; justify-items: start; }
+.done h3 { font-size: var(--t-h2); line-height: 1.05; }
+.done p { font-size: var(--t-lead); max-width: 36rem; }
+.done .demo { font-size: var(--t-small); background: var(--blue-soft); color: var(--ink); border-radius: 10px; padding: 10px 14px; }
+.done-actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+.share-msg { font-size: var(--t-small); color: var(--muted); user-select: all; word-break: break-all; }
+
+/* ---------- FAQ ---------- */
+.faq { display: grid; max-width: 48rem; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  font: 700 1.08rem/1.35 var(--f-head);
+  color: var(--ink);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--on-blue);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 0 18px; color: var(--muted); max-width: 42rem; }
+
+/* ---------- Pied de page ---------- */
+.foot { background: var(--tint); }
+.foot .wrap { padding-block: 40px; display: grid; gap: 14px; font-size: var(--t-small); color: var(--muted); justify-items: start; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.foot strong { color: var(--ink); }
+
+/* ---------- Bouton collant sur mobile ---------- */
+.sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+}
+.sticky .btn { width: 100%; }
+@media (min-width: 720px) { .sticky { display: none !important; } }
+@media (max-width: 719px) { .foot .wrap { padding-bottom: 110px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="NAPA, accueil">NAPA</a>
+    <a class="insta" href="https://www.instagram.com/napa_grenoble/" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <span>NAPA_Grenoble</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="titre">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1 id="titre">Un étudiant pour chaque <span class="hl">coup de main&nbsp;!</span></h1>
+        <p class="mission"><strong>Notre mission&nbsp;:</strong> permettre aux étudiants de mettre leurs compétences au service de tous, à Grenoble.</p>
+        <nav class="pills" aria-label="Missions">
+          <a class="pill" href="#preinscription" data-check="m-garde">Garde d'enfants</a>
+          <a class="pill" href="#preinscription" data-check="m-cours">Cours particuliers<small>Collège, lycée, prépa</small></a>
+          <a class="pill" href="#preinscription" data-check="m-courses">Aide aux courses</a>
+        </nav>
+        <div class="cta-row">
+          <a class="btn" id="hero-cta" href="#preinscription">Je donne mon avis
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="cta-note">1 minute · gratuit · sans engagement</span>
+        </div>
+      </div>
+      <figure class="duo">
+        <img src="equipe.webp" width="379" height="425" alt="Clément et Camille, cofondateurs de NAPA">
+      </figure>
+    </div>
+
+    <svg class="alps" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <path class="far" d="M0 132 L60 118 L110 126 L170 92 L215 108 L268 72 L300 86 L345 58 L392 84 L450 66 L505 98 L560 80 L622 104 L690 70 L742 88 L800 54 L850 82 L905 74 L960 100 L1020 78 L1080 96 L1140 84 L1200 104 V240 H0 Z"/>
+      <path class="mid" d="M0 170 L90 160 L150 166 L210 138 L236 128 L262 132 L300 150 L380 158 L470 150 L540 124 L560 112 L640 110 L662 126 L720 150 L800 162 L880 152 L960 140 L1010 120 L1040 118 L1070 134 L1140 150 L1200 146 V240 H0 Z"/>
+      <path class="near" d="M0 214 C120 210 230 196 320 172 C370 158 398 148 428 150 C462 152 486 178 530 198 C620 220 760 224 1200 224 V240 H0 Z"/>
+      <rect class="station" x="418" y="136" width="22" height="14" rx="2"/>
+      <rect class="station" x="838" y="206" width="26" height="18" rx="2"/>
+      <line class="cable" x1="846" y1="208" x2="430" y2="138"/>
+      <g class="cabins">
+        <g class="bulle"><line x1="812.5" y1="202.4" x2="812.5" y2="209.4"/><circle cx="812.5" cy="218.4" r="9"/></g>
+        <g class="bulle"><line x1="784.9" y1="197.7" x2="784.9" y2="204.7"/><circle cx="784.9" cy="213.7" r="9"/></g>
+        <g class="bulle"><line x1="757.3" y1="193.1" x2="757.3" y2="200.1"/><circle cx="757.3" cy="209.1" r="9"/></g>
+        <g class="bulle"><line x1="729.6" y1="188.4" x2="729.6" y2="195.4"/><circle cx="729.6" cy="204.4" r="9"/></g>
+      </g>
+    </svg>
+  </section>
+
+  <section class="about" aria-labelledby="titre-about">
+    <div class="wrap">
+      <h2 id="titre-about">Qui sommes-nous&nbsp;?</h2>
+      <div class="about-text">
+        <p><strong>Clément et Camille</strong>, deux étudiants en école d'ingénieurs à Grenoble. On crée une appli pour vous simplifier le quotidien, et permettre aux étudiants de gagner un peu d'argent.</p>
+        <p>Avant de la lancer, on veut savoir de quoi vous avez besoin. C'est le but de cette page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="avantages" aria-labelledby="titre-avantages">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="titre-avantages">Vos avantages</h2>
+      </div>
+
+      <div class="benefit">
+        <h3 class="benefit-title"><span>Un accompagnement au quotidien, à <strong>faible coût</strong></span></h3>
+        <div class="price">
+          <div class="price-text">
+            <p>Vous employez l'étudiant via le CESU, le dispositif de l'Urssaf. La moitié de la dépense, salaire et cotisations compris, vous revient en crédit d'impôt. Avec Cesu+ et l'avance immédiate, elle est déduite à chaque paiement&nbsp;: vous n'avancez rien.</p>
+            <p class="muted">Ce crédit d'impôt est versé même si vous n'êtes pas imposable. Un coup de main payé de la main à la main, lui, n'y donne jamais droit.</p>
+          </div>
+          <aside class="ticket" aria-label="Exemple de prix pour une heure de cours">
+            <p class="ticket-head">Exemple · 1&nbsp;h de cours de maths à domicile</p>
+            <dl>
+              <div class="row"><dt>Salaire et cotisations</dt><dd>30,00&nbsp;€</dd></div>
+              <div class="row student"><dt>dont salaire net de l'étudiant</dt><dd>≈&nbsp;17&nbsp;€</dd></div>
+              <div class="row credit"><dt>Crédit d'impôt (50&nbsp;%)</dt><dd>−&nbsp;15,00&nbsp;€</dd></div>
+              <div class="tear" aria-hidden="true"></div>
+              <div class="row total"><dt>Vous payez</dt><dd>15,00&nbsp;€</dd></div>
+            </dl>
+            <p class="ticket-foot">L'étudiant touche plus que ce que vous payez. Estimation avec les taux Urssaf 2026 en métropole, congés payés et déduction de 2&nbsp;€ par heure inclus.</p>
+          </aside>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <h3 class="benefit-title"><span>Un échange <strong>direct</strong> avec des étudiants certifiés et motivés</span></h3>
+        <ul class="trust">
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span><strong>Statut étudiant certifié</strong> par l'e-mail de l'école (UGA, Grenoble INP…) ou la carte étudiante.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span><strong>Extrait de casier judiciaire</strong> (bulletin n°&nbsp;3) demandé à chaque étudiant.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span><strong>Des avis</strong> laissés par les autres familles.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span><strong>Près de chez vous</strong>, grâce à la recherche par quartier.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span><strong>Un emploi déclaré.</strong> Vous payez moitié prix, et l'étudiant a de vrais droits sociaux.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span><strong>Un contact direct.</strong> Vous choisissez votre étudiant et vous vous organisez ensemble.</span></li>
+        </ul>
+        <p class="trust-note">Plus besoin de chercher au hasard dans les groupes Facebook ou les petites annonces. Vous savez qui entre chez vous.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec how" aria-labelledby="titre-how">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Comment ça marchera</p>
+        <h2 id="titre-how">Du besoin au coup de main, en quatre étapes.</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Publiez votre besoin</h3>
+          <p>Garde, cours, courses… Avec votre quartier et vos créneaux.</p>
+        </li>
+        <li>
+          <h3>Choisissez votre étudiant</h3>
+          <p>Profils certifiés, avis des autres familles et tarif affiché en clair.</p>
+        </li>
+        <li>
+          <h3>L'étudiant vient chez vous</h3>
+          <p>À domicile, c'est la condition pour bénéficier du crédit d'impôt.</p>
+        </li>
+        <li>
+          <h3>Déclarez en quelques clics</h3>
+          <p>Vous déclarez et payez sur cesu.urssaf.fr. NAPA vous guide pas à pas pour activer Cesu+.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec join" id="preinscription" aria-labelledby="titre-join">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Votre avis compte</p>
+        <h2 id="titre-join">Et l'objectif, c'est quoi&nbsp;?</h2>
+        <ol class="goals">
+          <li><b>1</b><span>Recueillir votre avis et vos idées&nbsp;!</span></li>
+          <li><b>2</b><span>Vous tenir au courant de l'avancée du projet&nbsp;!</span></li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <form id="signup" novalidate>
+          <fieldset aria-describedby="err-missions">
+            <legend>Quels coups de main vous serviraient&nbsp;? <small>(au moins un)</small></legend>
+            <div class="mgrid">
+              <label class="mcard poster">
+                <input type="checkbox" id="m-garde" name="mission" value="Garde d'enfants">
+                <span class="mtitle">Garde d'enfants</span>
+                <span class="mdesc">Sortie d'école, baby-sitting, mercredis</span>
+              </label>
+              <label class="mcard poster">
+                <input type="checkbox" id="m-cours" name="mission" value="Cours particuliers">
+                <span class="mtitle">Cours particuliers</span>
+                <span class="mdesc">Collège, lycée, prépa… à domicile</span>
+              </label>
+              <label class="mcard poster">
+                <input type="checkbox" id="m-courses" name="mission" value="Aide aux courses">
+                <span class="mtitle">Aide aux courses</span>
+                <span class="mdesc">Faire les courses, les porter jusque chez vous</span>
+              </label>
+              <label class="mcard">
+                <input type="checkbox" id="m-info" name="mission" value="Aide informatique">
+                <span class="mtitle">Aide informatique</span>
+                <span class="mdesc">Ordinateur, smartphone, box internet</span>
+              </label>
+              <label class="mcard">
+                <input type="checkbox" id="m-jardin" name="mission" value="Petit jardinage">
+                <span class="mtitle">Petit jardinage</span>
+                <span class="mdesc">Tonte, taille de haies, désherbage</span>
+              </label>
+              <label class="mcard">
+                <input type="checkbox" id="m-brico" name="mission" value="Petit bricolage">
+                <span class="mtitle">Petit bricolage</span>
+                <span class="mdesc">Montage de meubles, petites réparations</span>
+              </label>
+              <label class="mcard">
+                <input type="checkbox" id="m-animaux" name="mission" value="Promenade d'animaux">
+                <span class="mtitle">Promenade d'animaux</span>
+                <span class="mdesc">Sortie du chien, visites pendant vos absences</span>
+              </label>
+              <label class="mcard">
+                <input type="checkbox" id="m-autre" name="mission" value="Autre">
+                <span class="mtitle">Autre chose</span>
+                <span class="mdesc">Dites-nous laquelle</span>
+              </label>
+            </div>
+
+            <div class="sub" id="niveau-wrap" hidden>
+              <p class="sub-label" id="niveau-label">Cours particuliers&nbsp;: pour quel niveau&nbsp;? <span class="opt">(facultatif)</span></p>
+              <div class="chips" role="group" aria-labelledby="niveau-label">
+                <label class="chip"><input type="checkbox" id="n-primaire" name="niveau" value="Primaire"><span>Primaire</span></label>
+                <label class="chip"><input type="checkbox" id="n-college" name="niveau" value="Collège"><span>Collège</span></label>
+                <label class="chip"><input type="checkbox" id="n-lycee" name="niveau" value="Lycée"><span>Lycée</span></label>
+                <label class="chip"><input type="checkbox" id="n-prepa" name="niveau" value="Prépa"><span>Prépa</span></label>
+                <label class="chip"><input type="checkbox" id="n-sup" name="niveau" value="Études supérieures"><span>Études supérieures</span></label>
+                <label class="chip"><input type="checkbox" id="n-adulte" name="niveau" value="Adulte"><span>Adulte</span></label>
+              </div>
+            </div>
+
+            <div class="sub field" id="autre-wrap" hidden>
+              <label for="f-autre">Quel autre coup de main&nbsp;?</label>
+              <input type="text" id="f-autre" maxlength="120" placeholder="Ex. repassage, aide administrative…">
+            </div>
+
+            <p class="error" id="err-missions" role="alert" hidden>Cochez au moins un coup de main pour continuer.</p>
+            <p class="note">Le crédit d'impôt dépend du type de service. Nous vérifions chaque mission avant de l'ouvrir sur NAPA.</p>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-idees">Vos idées ou remarques <span class="opt">(facultatif)</span></label>
+            <textarea id="f-idees" name="idees" rows="3" maxlength="600" placeholder="Un besoin précis, une crainte, une idée pour l'appli… On lit tout."></textarea>
+          </div>
+
+          <div class="fields">
+            <div class="field">
+              <label for="f-email">Votre e-mail</label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" inputmode="email" placeholder="vous@exemple.fr" aria-describedby="err-email">
+              <p class="error" id="err-email" role="alert" hidden>Indiquez une adresse e-mail valide, par exemple prenom@exemple.fr.</p>
+            </div>
+            <div class="field">
+              <label for="f-prenom">Prénom <span class="opt">(facultatif)</span></label>
+              <input type="text" id="f-prenom" name="prenom" autocomplete="given-name" maxlength="60">
+            </div>
+            <div class="field">
+              <label for="f-quartier">Quartier ou commune <span class="opt">(facultatif)</span></label>
+              <input type="text" id="f-quartier" name="quartier" list="quartiers" maxlength="80" placeholder="Ex. Île Verte, Meylan…">
+              <datalist id="quartiers">
+                <option value="Grenoble – Centre-ville"></option>
+                <option value="Grenoble – Île Verte"></option>
+                <option value="Grenoble – Championnet"></option>
+                <option value="Grenoble – Saint-Bruno / Berriat"></option>
+                <option value="Grenoble – Europole"></option>
+                <option value="Grenoble – Presqu'île"></option>
+                <option value="Grenoble – Eaux-Claires"></option>
+                <option value="Grenoble – Mistral"></option>
+                <option value="Grenoble – Capuche"></option>
+                <option value="Grenoble – Exposition-Bajatière"></option>
+                <option value="Grenoble – Teisseire / Malherbe"></option>
+                <option value="Grenoble – Abbaye-Jouhaux"></option>
+                <option value="Grenoble – Villeneuve / Village Olympique"></option>
+                <option value="Saint-Martin-d'Hères"></option>
+                <option value="Échirolles"></option>
+                <option value="Meylan"></option>
+                <option value="La Tronche"></option>
+                <option value="Corenc"></option>
+                <option value="Seyssinet-Pariset"></option>
+                <option value="Seyssins"></option>
+                <option value="Fontaine"></option>
+                <option value="Sassenage"></option>
+                <option value="Saint-Égrève"></option>
+                <option value="Saint-Martin-le-Vinoux"></option>
+                <option value="Eybens"></option>
+                <option value="Gières"></option>
+                <option value="Le Pont-de-Claix"></option>
+                <option value="Claix"></option>
+                <option value="Domène"></option>
+              </datalist>
+            </div>
+          </div>
+
+          <div class="consents">
+            <label class="consent" for="f-newsletter">
+              <input type="checkbox" id="f-newsletter" name="newsletter">
+              <span>Je veux être tenu·e au courant de l'avancée du projet (lettre d'information).</span>
+            </label>
+            <label class="consent" for="f-entretien">
+              <input type="checkbox" id="f-entretien" name="entretien">
+              <span>J'accepte d'être contacté·e pour un échange de 10 minutes sur mes besoins.</span>
+            </label>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="f-site">Ne pas remplir</label>
+            <input type="text" id="f-site" name="site" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="submit-row">
+            <button class="btn" type="submit" id="submit">Envoyer mon avis</button>
+            <p class="error" id="err-submit" role="alert" hidden></p>
+            <p class="legal">Si vous ne cochez pas la case « tenu·e au courant », votre e-mail sert uniquement à vous annoncer le lancement de l'appli. Vous pouvez demander la suppression de vos données à tout moment. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+          </div>
+        </form>
+
+        <div class="done" id="done" hidden>
+          <h3 id="done-title" tabindex="-1">Merci&nbsp;!</h3>
+          <p>Votre avis nous aide à construire NAPA. <span id="done-next">Nous vous préviendrons au lancement de l'appli.</span></p>
+          <p class="demo" id="demo-note" hidden>Mode démo&nbsp;: ce formulaire n'est pas encore relié à Brevo, rien n'a été enregistré.</p>
+          <p>Vous connaissez quelqu'un que ça aiderait&nbsp;?</p>
+          <div class="done-actions">
+            <button class="btn btn-ghost" type="button" id="share">Partager NAPA</button>
+            <a class="insta" href="https://www.instagram.com/napa_grenoble/" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+              <span>Suivre NAPA_Grenoble</span>
+            </a>
+          </div>
+          <p class="share-msg" id="share-msg" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="titre-faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2 id="titre-faq">Ce qu'on nous demande souvent.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Combien coûte NAPA&nbsp;?</summary>
+          <p>Rien. NAPA est gratuit au lancement. Vous payez seulement l'étudiant, via le CESU, et la moitié de cette dépense vous revient en crédit d'impôt.</p>
+        </details>
+        <details>
+          <summary>Qu'est-ce que le CESU&nbsp;?</summary>
+          <p>Le chèque emploi service universel est le dispositif de l'Urssaf pour employer quelqu'un à son domicile. Vous êtes l'employeur et l'étudiant est votre salarié. Vous déclarez les heures sur cesu.urssaf.fr, l'Urssaf calcule les cotisations et envoie à l'étudiant son attestation d'emploi, qui vaut bulletin de salaire.</p>
+        </details>
+        <details>
+          <summary>Comment marchent Cesu+ et l'avance immédiate&nbsp;?</summary>
+          <p>Avec Cesu+, l'Urssaf prélève votre compte et verse le salaire à l'étudiant. Avec l'avance immédiate, les 50&nbsp;% de crédit d'impôt sont déduits à chaque déclaration&nbsp;: vous ne payez que votre moitié, sans attendre l'année suivante. Vous et l'étudiant devez adhérer au service, et NAPA vous explique comment faire.</p>
+        </details>
+        <details>
+          <summary>Je ne suis pas imposable. Ai-je droit au crédit d'impôt&nbsp;?</summary>
+          <p>Oui. Ce crédit d'impôt est remboursable&nbsp;: il vous est versé même si vous ne payez pas d'impôt sur le revenu.</p>
+        </details>
+        <details>
+          <summary>Toutes les missions donnent-elles droit au crédit d'impôt&nbsp;?</summary>
+          <p>Non, cela dépend du service. Les cours à domicile et la garde d'enfants y donnent droit. Pour les autres missions, comme l'aide aux courses, nous vérifions les conditions avant de les ouvrir sur NAPA.</p>
+        </details>
+        <details>
+          <summary>Pourquoi l'étudiant vient-il chez moi&nbsp;?</summary>
+          <p>Le crédit d'impôt s'applique aux services rendus à votre domicile. Un cours en visio, par exemple, n'y donne pas droit.</p>
+        </details>
+        <details>
+          <summary>NAPA fait-il les déclarations à ma place&nbsp;?</summary>
+          <p>Non. Vous gardez la main sur vos déclarations CESU. NAPA vous fournit un guide pas à pas pour tout mettre en place, une fois pour toutes.</p>
+        </details>
+        <details>
+          <summary>Quand l'appli sera-t-elle disponible&nbsp;?</summary>
+          <p>Nous lançons d'abord à Grenoble. Les personnes qui ont laissé leur e-mail sur cette page sont prévenues en premier.</p>
+        </details>
+        <details>
+          <summary>Que faites-vous de mon e-mail&nbsp;?</summary>
+          <p>Si vous ne cochez pas la case « tenu·e au courant », il sert uniquement à vous annoncer le lancement de l'appli. Si vous la cochez, vous recevez aussi des nouvelles du projet, avec un lien de désinscription dans chaque envoi. Vous pouvez demander la suppression de vos données à tout moment.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="logo">NAPA</span>
+    <p>NAPA est porté par <strong>Clément</strong> et <strong>Camille</strong>, étudiants en école d'ingénieurs à Grenoble.</p>
+    <a class="insta" href="https://www.instagram.com/napa_grenoble/" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <span>NAPA_Grenoble</span>
+    </a>
+    <p>Vous êtes étudiant·e&nbsp;? Suivez-nous sur Instagram, les inscriptions étudiantes ouvriront bientôt.</p>
+    <nav aria-label="Informations légales">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Politique de confidentialité</a>
+    </nav>
+    <p>© 2026 NAPA</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" hidden>
+  <a class="btn" href="#preinscription">Je donne mon avis · 1 min</a>
+</div>
+
+<script>
+(() => {
+  // Adresse d'envoi du formulaire Brevo (voir MISE-EN-LIGNE.md), par exemple
+  // "https://xxxxxxxx.sibforms.com/serve/MUIFA...". Laissée vide, la page tourne en mode démo : rien n'est envoyé.
+  const BREVO_FORM_URL = "";
+
+  const $ = (id) => document.getElementById(id);
+
+  // Questions qui apparaissent selon les missions cochées
+  const cours = $("m-cours");
+  const autre = $("m-autre");
+  const missionBoxes = [...document.querySelectorAll('input[name="mission"]')];
+  function syncMissions() {
+    $("niveau-wrap").hidden = !cours.checked;
+    $("autre-wrap").hidden = !autre.checked;
+    if (missionBoxes.some((b) => b.checked)) $("err-missions").hidden = true;
+  }
+  missionBoxes.forEach((box) => box.addEventListener("change", syncMissions));
+
+  // Les étiquettes de l'affiche cochent la mission correspondante dans le formulaire
+  document.querySelectorAll("[data-check]").forEach((pill) => pill.addEventListener("click", () => {
+    $(pill.dataset.check).checked = true;
+    syncMissions();
+  }));
+
+  // Origine du QR code : ajoutez ?src=affiche-lycee-champollion (par exemple) à l'URL de chaque QR code
+  const source = (new URLSearchParams(location.search).get("src") || "direct").replace(/[^\w-]/g, "").slice(0, 40);
+
+  // Envoi du formulaire
+  const form = $("signup");
+  const email = $("f-email");
+  const submit = $("submit");
+  let done = false;
+
+  email.addEventListener("input", () => { if (email.checkValidity()) $("err-email").hidden = true; });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    $("err-submit").hidden = true;
+
+    const missions = missionBoxes.filter((b) => b.checked).map((b) => {
+      const detail = $("f-autre").value.trim();
+      return b === autre && detail ? "Autre : " + detail : b.value;
+    });
+    if (!missions.length) {
+      $("err-missions").hidden = false;
+      missionBoxes[0].focus();
+      return;
+    }
+    email.value = email.value.trim();
+    if (!email.value || !email.checkValidity()) {
+      $("err-email").hidden = false;
+      email.focus();
+      return;
+    }
+
+    const niveaux = [...document.querySelectorAll('input[name="niveau"]:checked')].map((b) => b.value);
+    const data = new FormData();
+    data.append("EMAIL", email.value);
+    data.append("PRENOM", $("f-prenom").value.trim());
+    data.append("QUARTIER", $("f-quartier").value.trim());
+    data.append("MISSIONS", missions.join(" ; "));
+    data.append("NIVEAU", cours.checked ? niveaux.join(" ; ") : "");
+    data.append("IDEES", $("f-idees").value.trim());
+    data.append("NEWSLETTER", $("f-newsletter").checked ? "oui" : "non");
+    data.append("ENTRETIEN", $("f-entretien").checked ? "oui" : "non");
+    data.append("PROFIL", "particulier");
+    data.append("SOURCE", source);
+    data.append("email_address_check", $("f-site").value);
+    data.append("locale", "fr");
+
+    submit.disabled = true;
+    submit.textContent = "Envoi en cours…";
+    try {
+      if (!BREVO_FORM_URL) {
+        console.info("[NAPA] Mode démo, données non envoyées :", Object.fromEntries(data));
+        await new Promise((r) => setTimeout(r, 400));
+        showDone(true);
+        return;
+      }
+      const res = await fetch(BREVO_FORM_URL + "?isAjax=1", { method: "POST", body: data });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.success === false) {
+        const detail = json.errors ? Object.values(json.errors)[0] : json.message;
+        throw new Error(detail || "Réponse inattendue du serveur.");
+      }
+      showDone(false);
+    } catch (err) {
+      const msg = $("err-submit");
+      msg.textContent = "L'envoi n'a pas abouti (" + err.message + "). Vérifiez votre connexion puis réessayez.";
+      msg.hidden = false;
+      submit.disabled = false;
+      submit.textContent = "Envoyer mon avis";
+    }
+  });
+
+  function showDone(demo) {
+    done = true;
+    const prenom = $("f-prenom").value.trim();
+    $("done-title").textContent = prenom ? "Merci, " + prenom + " !" : "Merci !";
+    $("done-next").textContent = $("f-newsletter").checked
+      ? "Nous vous tiendrons au courant de l'avancée du projet."
+      : "Nous vous préviendrons au lancement de l'appli.";
+    $("demo-note").hidden = !demo;
+    form.hidden = true;
+    $("done").hidden = false;
+    $("sticky").hidden = true;
+    $("done-title").focus();
+  }
+
+  // Partage
+  $("share").addEventListener("click", async () => {
+    const url = location.origin + location.pathname;
+    const msg = $("share-msg");
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "NAPA", text: "Un étudiant pour chaque coup de main, à Grenoble : garde d'enfants, cours particuliers, aide aux courses.", url });
+        return;
+      } catch (err) {
+        if (err.name === "AbortError") return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      msg.textContent = "Lien copié. Collez-le dans un message.";
+    } catch {
+      msg.textContent = url;
+    }
+  });
+
+  // Bouton collant sur mobile : visible entre le haut de page et le formulaire
+  const sticky = $("sticky");
+  if ("IntersectionObserver" in window) {
+    let heroVisible = true;
+    let joinVisible = false;
+    const heroCta = $("hero-cta");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.target === heroCta) heroVisible = en.isIntersecting;
+        else joinVisible = en.isIntersecting;
+      });
+      sticky.hidden = done || heroVisible || joinVisible;
+    });
+    io.observe(heroCta);
+    io.observe($("preinscription"));
+  }
+})();
+</script>
+</body>
+</html>

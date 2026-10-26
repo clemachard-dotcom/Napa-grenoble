@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mentions légales NAPA</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Work+Sans:wght@400;600;700&display=swap">
+<style>
+:root {
+  --paper: #FFFFFF; --ink: #05070D; --text: #17213B; --muted: #4F5A76; --line: #D3DDF1; --blue: #4B7AE1; --on-blue: #FFFFFF; --todo: #DFE8FB;
+  --f-head: Arial, "Helvetica Neue", Helvetica, "Arimo", sans-serif;
+  --f-body: "Work Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #0A1020; --ink: #F3F6FC; --text: #DCE3F2; --muted: #9DA9C4; --line: #26345A; --todo: #1B2A4F; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #0A1020; --ink: #F3F6FC; --text: #DCE3F2; --muted: #9DA9C4; --line: #26345A; --todo: #1B2A4F; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 400 1.0625rem/1.65 var(--f-body); }
+main {
+  max-width: 44rem; margin-inline: auto; padding-block: 32px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; text-underline-offset: .18em; }
+.back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; }
+.logo { background: var(--blue); color: var(--on-blue); font: 700 1.1rem/1 var(--f-head); letter-spacing: .16em; padding: .45em .85em .45em 1.01em; border-radius: 999px; }
+h1, h2 { font-family: var(--f-head); font-weight: 700; color: var(--ink); text-wrap: balance; }
+h1 { font-size: clamp(2rem, 1.5rem + 2vw, 2.6rem); line-height: 1.1; margin: 28px 0 8px; }
+h2 { font-size: 1.3rem; margin: 36px 0 8px; }
+strong { color: var(--ink); }
+.meta { color: var(--muted); }
+ul { padding-left: 1.2em; }
+mark { background: var(--todo); color: var(--ink); padding: 0 .2em; border-radius: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← <span class="logo">NAPA</span></a>
+  <h1>Mentions légales</h1>
+  <p class="meta">Dernière mise à jour : 26 octobre 2026</p>
+
+  <h2>Éditeur du site</h2>
+  <p>Ce site présente NAPA, un projet en cours de création porté par Clément <mark>Achard</mark> et Camille <mark>Leroux</mark>.<br>
+  Adresse : <mark>222 Chemin de Provence</mark><br>
+  Contact : <mark>clem.achard@gmail.com</mark></p>
+
+  <h2>Hébergement</h2>
+  <p><mark>GitHub</mark></p>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>Les textes, illustrations et éléments graphiques de ce site appartiennent à l'équipe NAPA. Toute reproduction sans autorisation est interdite.</p>
+
+  <h2>Données personnelles</h2>
+  <p>Le traitement des informations envoyées via le formulaire de préinscription est décrit dans la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+</main>
+</body>
+</html>

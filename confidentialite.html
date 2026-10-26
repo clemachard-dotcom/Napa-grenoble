@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Confidentialité NAPA</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Work+Sans:wght@400;600;700&display=swap">
+<style>
+:root {
+  --paper: #FFFFFF; --ink: #05070D; --text: #17213B; --muted: #4F5A76; --line: #D3DDF1; --blue: #4B7AE1; --on-blue: #FFFFFF; --todo: #DFE8FB;
+  --f-head: Arial, "Helvetica Neue", Helvetica, "Arimo", sans-serif;
+  --f-body: "Work Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #0A1020; --ink: #F3F6FC; --text: #DCE3F2; --muted: #9DA9C4; --line: #26345A; --todo: #1B2A4F; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #0A1020; --ink: #F3F6FC; --text: #DCE3F2; --muted: #9DA9C4; --line: #26345A; --todo: #1B2A4F; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 400 1.0625rem/1.65 var(--f-body); }
+main {
+  max-width: 44rem; margin-inline: auto; padding-block: 32px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; text-underline-offset: .18em; }
+.back { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; }
+.logo { background: var(--blue); color: var(--on-blue); font: 700 1.1rem/1 var(--f-head); letter-spacing: .16em; padding: .45em .85em .45em 1.01em; border-radius: 999px; }
+h1, h2 { font-family: var(--f-head); font-weight: 700; color: var(--ink); text-wrap: balance; }
+h1 { font-size: clamp(2rem, 1.5rem + 2vw, 2.6rem); line-height: 1.1; margin: 28px 0 8px; }
+h2 { font-size: 1.3rem; margin: 36px 0 8px; }
+strong { color: var(--ink); }
+.meta { color: var(--muted); }
+ul { padding-left: 1.2em; }
+mark { background: var(--todo); color: var(--ink); padding: 0 .2em; border-radius: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← <span class="logo">NAPA</span></a>
+  <h1>Politique de confidentialité</h1>
+  <p class="meta">Dernière mise à jour : 26 octobre 2026</p>
+
+  <h2>Qui est responsable de vos données ?</h2>
+  <p>Le projet NAPA, porté par Clément <mark>[nom]</mark> et Camille <mark>[nom]</mark>. Pour toute question ou demande sur vos données, écrivez à <mark>[adresse e-mail de contact]</mark>.</p>
+
+  <h2>Quelles données collectons-nous ?</h2>
+  <p>Uniquement ce que vous saisissez dans le formulaire de préinscription :</p>
+  <ul>
+    <li>votre adresse e-mail (obligatoire) ;</li>
+    <li>votre prénom et votre quartier ou commune, si vous les indiquez ;</li>
+    <li>les missions qui vous intéressent et, pour les cours, le niveau concerné ;</li>
+    <li>vos idées ou remarques, si vous en laissez ;</li>
+    <li>vos choix : être tenu au courant de l'avancée du projet, accepter un échange avec nous ;</li>
+    <li>le support par lequel vous êtes arrivé sur la page (par exemple une affiche ou un flyer), sans aucune donnée vous identifiant.</li>
+  </ul>
+  <p>Nous ne vous demandons aucune information sur vos enfants.</p>
+
+  <h2>À quoi servent-elles ?</h2>
+  <ul>
+    <li><strong>Vous annoncer le lancement de l'appli NAPA.</strong> Si vous ne cochez pas la case « tenu·e au courant », votre e-mail sert uniquement à cela.</li>
+    <li><strong>Vous tenir au courant de l'avancée du projet</strong> (lettre d'information), seulement si vous avez coché la case prévue. Chaque envoi contient un lien de désinscription.</li>
+    <li><strong>Recueillir votre avis et vos idées</strong> pour construire l'appli.</li>
+    <li><strong>Vous proposer un échange de 10 minutes</strong>, seulement si vous avez coché la case prévue.</li>
+    <li><strong>Mesurer l'intérêt pour chaque mission et chaque quartier</strong>, sous forme de statistiques globales, pour décider de la suite du projet.</li>
+  </ul>
+  <p>La base légale de ces traitements est votre consentement, que vous pouvez retirer à tout moment. Vos données ne sont jamais vendues ni cédées.</p>
+
+  <h2>Qui y a accès ?</h2>
+  <p>Seuls les cofondateurs de NAPA. Les contacts sont conservés chez Brevo (Sendinblue SAS, société française), notre outil d'envoi d'e-mails, qui héberge les données dans l'Union européenne et agit pour notre compte.</p>
+
+  <h2>Combien de temps les gardons-nous ?</h2>
+  <ul>
+    <li>Sans lettre d'information : jusqu'à l'annonce de l'ouverture de NAPA, puis suppression dans les 3 mois. Si le projet ne voit pas le jour, vos données sont supprimées au plus tard 3 ans après votre préinscription.</li>
+    <li>Avec lettre d'information : jusqu'à votre désinscription, et au plus 3 ans après notre dernier échange.</li>
+  </ul>
+
+  <h2>Vos droits</h2>
+  <p>Vous pouvez accéder à vos données, les rectifier, les supprimer, vous opposer à leur utilisation ou en demander la portabilité, en écrivant à <mark>[adresse e-mail de contact]</mark>. Nous répondons sous un mois. Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+
+  <h2>Cookies et services tiers</h2>
+  <p>Cette page ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience. Pour afficher ses polices de caractères, elle les charge depuis Google Fonts, ce qui transmet votre adresse IP aux serveurs de Google.</p>
+</main>
+</body>
+</html>
