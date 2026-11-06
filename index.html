@@ -218,6 +218,11 @@ h1 {
 
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 4px; }
 .cta-note { font-size: var(--t-small); color: var(--muted); font-weight: 500; }
+.btn-lg { min-height: 68px; padding: 0 2.1em; font-size: 1.4rem; }
+/* Sur téléphone, le bouton prend toute la largeur pour qu'on ne le rate pas */
+@media (max-width: 719px) {
+  .cta-row { justify-self: stretch; flex-direction: column; align-items: stretch; text-align: center; margin-top: 10px; }
+}
 
 /* Photo dans le cercle bleu */
 .duo {
@@ -481,8 +486,7 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
 .chip input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
 .note { font-size: var(--t-small); color: var(--muted); margin-top: 14px; }
 
-.fields { display: grid; gap: 16px; }
-@media (min-width: 760px) { .fields { grid-template-columns: 1.3fr 1fr 1.2fr; } }
+.email-field { max-width: 28rem; }
 .field { display: grid; gap: 6px; min-width: 0; align-content: start; }
 .field label { font-weight: 700; color: var(--ink); }
 .field input[type="text"], .field input[type="email"], .field textarea {
@@ -592,8 +596,8 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
           <a class="pill" href="#preinscription" data-check="m-courses">Aide aux courses</a>
         </nav>
         <div class="cta-row">
-          <a class="btn" id="hero-cta" href="#preinscription">Je donne mon avis
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <a class="btn btn-lg" id="hero-cta" href="#preinscription">Je donne mon avis
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <span class="cta-note">1 minute · gratuit · sans engagement</span>
         </div>
@@ -623,7 +627,7 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
     <div class="wrap">
       <h2 id="titre-about">Qui sommes-nous&nbsp;?</h2>
       <div class="about-text">
-        <p><strong>Clément et Camille</strong>, deux étudiants en école d'ingénieurs à Grenoble. On crée une appli pour vous simplifier le quotidien, et permettre aux étudiants de gagner un peu d'argent.</p>
+        <p><strong>Clément et Camille</strong>, deux étudiants en école d'ingénieurs à Grenoble. Nous créons une appli pour vous simplifier le quotidien, et permettre aux étudiants de gagner un peu d'argent.</p>
         <p>Avant de la lancer, on veut savoir de quoi vous avez besoin. C'est le but de cette page.</p>
       </div>
     </div>
@@ -639,8 +643,8 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
         <h3 class="benefit-title"><span>Un accompagnement au quotidien, à <strong>faible coût</strong></span></h3>
         <div class="price">
           <div class="price-text">
-            <p>Vous employez l'étudiant via le CESU, le dispositif de l'Urssaf. La moitié de la dépense, salaire et cotisations compris, vous revient en crédit d'impôt. Avec Cesu+ et l'avance immédiate, elle est déduite à chaque paiement&nbsp;: vous n'avancez rien.</p>
-            <p class="muted">Ce crédit d'impôt est versé même si vous n'êtes pas imposable. Un coup de main payé de la main à la main, lui, n'y donne jamais droit.</p>
+            <p>Nous vous aidons à mettre en place le systeme CESU, le dispositif de l'Urssaf, grace à celui-ci vous employez l'étudiant. La moitié de la dépense, salaire et cotisations compris, vous revient en crédit d'impôt. Avec Cesu+ et l'avance immédiate, elle est déduite à chaque paiement&nbsp;: vous n'avancez rien.</p>
+            <p class="muted">Ce crédit d'impôt est versé même si vous n'êtes pas imposable. Comme dans l'exemple ci-contre : vous payez 15€ l'étudiant recoit 17€ </p>
           </div>
           <aside class="ticket" aria-label="Exemple de prix pour une heure de cours">
             <p class="ticket-head">Exemple · 1&nbsp;h de cours de maths à domicile</p>
@@ -777,56 +781,25 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
             <p class="note">Le crédit d'impôt dépend du type de service. Nous vérifions chaque mission avant de l'ouvrir sur NAPA.</p>
           </fieldset>
 
+          <fieldset>
+            <legend>Seriez-vous plus enclin·e à utiliser une plateforme qui fait travailler des étudiants&nbsp;? <small>(facultatif)</small></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="etudiants" value="Oui, beaucoup plus"><span>Oui, beaucoup plus</span></label>
+              <label class="chip"><input type="radio" name="etudiants" value="Oui, un peu plus"><span>Oui, un peu plus</span></label>
+              <label class="chip"><input type="radio" name="etudiants" value="Ça ne change rien"><span>Ça ne change rien pour moi</span></label>
+              <label class="chip"><input type="radio" name="etudiants" value="Plutôt moins"><span>Plutôt moins</span></label>
+            </div>
+          </fieldset>
+
           <div class="field">
             <label for="f-idees">Vos idées ou remarques <span class="opt">(facultatif)</span></label>
             <textarea id="f-idees" name="idees" rows="3" maxlength="600" placeholder="Un besoin précis, une crainte, une idée pour l'appli… On lit tout."></textarea>
           </div>
 
-          <div class="fields">
-            <div class="field">
-              <label for="f-email">Votre e-mail</label>
-              <input type="email" id="f-email" name="email" required autocomplete="email" inputmode="email" placeholder="vous@exemple.fr" aria-describedby="err-email">
-              <p class="error" id="err-email" role="alert" hidden>Indiquez une adresse e-mail valide, par exemple prenom@exemple.fr.</p>
-            </div>
-            <div class="field">
-              <label for="f-prenom">Prénom <span class="opt">(facultatif)</span></label>
-              <input type="text" id="f-prenom" name="prenom" autocomplete="given-name" maxlength="60">
-            </div>
-            <div class="field">
-              <label for="f-quartier">Quartier ou commune <span class="opt">(facultatif)</span></label>
-              <input type="text" id="f-quartier" name="quartier" list="quartiers" maxlength="80" placeholder="Ex. Île Verte, Meylan…">
-              <datalist id="quartiers">
-                <option value="Grenoble – Centre-ville"></option>
-                <option value="Grenoble – Île Verte"></option>
-                <option value="Grenoble – Championnet"></option>
-                <option value="Grenoble – Saint-Bruno / Berriat"></option>
-                <option value="Grenoble – Europole"></option>
-                <option value="Grenoble – Presqu'île"></option>
-                <option value="Grenoble – Eaux-Claires"></option>
-                <option value="Grenoble – Mistral"></option>
-                <option value="Grenoble – Capuche"></option>
-                <option value="Grenoble – Exposition-Bajatière"></option>
-                <option value="Grenoble – Teisseire / Malherbe"></option>
-                <option value="Grenoble – Abbaye-Jouhaux"></option>
-                <option value="Grenoble – Villeneuve / Village Olympique"></option>
-                <option value="Saint-Martin-d'Hères"></option>
-                <option value="Échirolles"></option>
-                <option value="Meylan"></option>
-                <option value="La Tronche"></option>
-                <option value="Corenc"></option>
-                <option value="Seyssinet-Pariset"></option>
-                <option value="Seyssins"></option>
-                <option value="Fontaine"></option>
-                <option value="Sassenage"></option>
-                <option value="Saint-Égrève"></option>
-                <option value="Saint-Martin-le-Vinoux"></option>
-                <option value="Eybens"></option>
-                <option value="Gières"></option>
-                <option value="Le Pont-de-Claix"></option>
-                <option value="Claix"></option>
-                <option value="Domène"></option>
-              </datalist>
-            </div>
+          <div class="field email-field">
+            <label for="f-email">Votre e-mail</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" inputmode="email" placeholder="vous@exemple.fr" aria-describedby="err-email">
+            <p class="error" id="err-email" role="alert" hidden>Indiquez une adresse e-mail valide, par exemple prenom@exemple.fr.</p>
           </div>
 
           <div class="consents">
@@ -997,11 +970,11 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
 
     const niveaux = [...document.querySelectorAll('input[name="niveau"]:checked')].map((b) => b.value);
     const data = new URLSearchParams();
+    const etudiants = document.querySelector('input[name="etudiants"]:checked');
     data.append("EMAIL", email.value);
-    data.append("PRENOM", $("f-prenom").value.trim());
-    data.append("QUARTIER", $("f-quartier").value.trim());
     data.append("MISSIONS", missions.join(" ; "));
     data.append("NIVEAU", cours.checked ? niveaux.join(" ; ") : "");
+    data.append("ETUDIANTS", etudiants ? etudiants.value : "");
     data.append("IDEES", $("f-idees").value.trim());
     data.append("NEWSLETTER", $("f-newsletter").checked ? "oui" : "non");
     data.append("ENTRETIEN", $("f-entretien").checked ? "oui" : "non");
@@ -1033,8 +1006,6 @@ input[type="checkbox"]:checked::before { transform: scale(1); }
 
   function showDone(demo) {
     done = true;
-    const prenom = $("f-prenom").value.trim();
-    $("done-title").textContent = prenom ? "Merci, " + prenom + " !" : "Merci !";
     $("done-next").textContent = $("f-newsletter").checked
       ? "Nous vous tiendrons au courant de l'avancée du projet."
       : "Nous vous préviendrons au lancement de l'appli.";
